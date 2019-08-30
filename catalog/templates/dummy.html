@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table border="3">
+	<tr>
+		<th>Name</th>
+		<th>DOB</th>
+		<th>org</th>
+	</tr>
+	{% for d in dummy %}
+	<tr>
+		<th>{{d.name}}</th>
+		<th>{{d.dob}}</th>
+		<th>{{d.org}}</th>
+	</tr>
+	{% endfor %}
+	</table>
+</body>
+</html>

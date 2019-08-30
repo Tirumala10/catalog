@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show_DATa</title>
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+</head>
+<body div class="view" style="background-image:url(https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);background-repeat: no-repeat;background-size:cover; background-position: center center;">
+<FORM action="" method="post">
+	<div class="container">
+		<h1 class ="mt-5">Register Data</h1>
+		<div>
+			{% with messages=get_flashed_messages() %}
+			{% if messages %}
+
+			<ul>
+				{% for message in messages %}
+				<li><h2>{{message}}</h2></li>
+				{% endfor%}
+			</ul>
+			{% endif%}
+			{% endwith%}
+		</div>
+		<table class="table table-bordered">
+			<thead class="thead-primary">
+
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">NAME</th>
+					<th scope="col">SURNAME</th>
+					<th scope="col">EMAILID</th>
+					<th scope="col">BRANCH</th>
+					<th scope="col" colspan="2" action>
+				</tr>
+				{% for r in reg %}
+				<tr>
+					<td>{{r.id}}</td>
+					<td>{{r.name}}</td>
+					<td>{{r.surname}}</td>
+					<td>{{r.email}}</td>
+					<td>{{r.branch}}</td>
+					<th><a href="{{url_for('editdata',register_id=r.id)}}">Edit</a></th>
+					<th><a href="{{url_for('deletedata',register_id=r.id)}}">Delete</th>
+				</tr>
+				{% endfor %}
+
+
+			</thead>
+		</table>
+		<div class="ontainer">
+			<center><button type="button" class="btn btn-success"><a href="{{url_for('adddata')}}"><font color="white">Add new data</font>
+			</a></button></center>
+			</div>
+	</div>
+</FORM>
+</body>
+</html>
